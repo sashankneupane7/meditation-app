@@ -92,7 +92,6 @@ function playPause() {
     document.getElementById("fire-btn").style.visibility = "visible";
     document.getElementById("beach-btn").style.visibility = "visible";
     document.getElementById("wind-btn").style.visibility = "visible";
-
   } else {
     ppButton = ppButton.replace("play.png", "pause.png");
     document.getElementById("ppButton").src = ppButton;
@@ -128,7 +127,9 @@ function tenMinutes() {
 function customMinutes() {
   timer = document.getElementById("custom-button").value * 60000;
   timerDisplay.innerHTML = msToTimeString(timer);
+  placeholderText = String(timer / 60000).concat(" Minutes");
   document.getElementById("custom-button").value = "none";
+  document.getElementById("custom-button").placeholder = placeholderText;
 }
 
 function msToTimeString(ms) {
