@@ -21,16 +21,16 @@
       <header id="header">Meditate with <a href="https://sashankneupane.com.np" target="_blank">sashank<span class="bold-logo">neupane</span></a></header>
       <div class="left">
         <div class="two-minutes">
-          <button class="two-button" onclick="twoMinutes()">2 Minutes</button>
+          <button class="minutes" onclick="twoMinutes()">2 Minutes</button>
         </div>
         <div class="five-minutes">
-          <button class="five-button" onclick="fiveMinutes()">5 Minutes</button>
+          <button class="minutes" onclick="fiveMinutes()">5 Minutes</button>
         </div>
         <div class="ten-minutes">
-          <button class="ten-button" onclick="tenMinutes()">10 Minutes</button>
+          <button class="minutes" onclick="tenMinutes()">10 Minutes</button>
         </div>
         <div class="custom-minutes">
-          <input id="custom-button" type="number" placeholder="Custom min" onchange="customMinutes()"></input>
+          <input id="minutes" type="number" placeholder="Custom min" onchange="customMinutes()"></input>
         </div>
       </div>
       <div class="center">
@@ -55,7 +55,7 @@
           <img id="fire-btn" src="./images/fire.png" class="icons" alt="Fire" onclick="fire()"/>
         </div>
       </div>
-      <footer>
+      <footer id="footer">
         &copy;
         <a href="https://sashankneupane.com.np" target="_blank"
           >Sashank Neupane</a
