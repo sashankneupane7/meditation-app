@@ -6,50 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Meditation App</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="shortcut icon" href="./images/favicon.svg" type="image/x-icon">
   </head>
   <body>
+    <video id="fire-vid" autoplay playsinline loop preload="true">
+      <source src="./videos/fire.mp4" type="video/mp4">
+        </video>
+    <video id="beach-vid" autoplay playsinline loop preload="true"><source src="./videos/beach.mp4" type="video/mp4"></video>
+      <video id="wind-vid" autoplay playsinline loop preload="true"><source src="./videos/wind.mp4" type="video/mp4"></video>
+      <video id="rain-vid" autoplay playsinline loop preload="true"><source src="./videos/rain.mp4" type="video/mp4"></video>
+      
+    
     <div class="all">
       <header>Meditate with <a href="https://sashankneupane.com.np" target="_blank">sashank<span class="bold-logo">neupane</span></a></header>
       <div class="left">
         <div class="two-minutes">
-          <button class="two-button">2 Minutes</button>
+          <button class="two-button" onclick="twoMinutes()">2 Minutes</button>
         </div>
         <div class="five-minutes">
-          <button class="five-button">5 Minutes</button>
+          <button class="five-button" onclick="fiveMinutes()">5 Minutes</button>
         </div>
         <div class="ten-minutes">
-          <button class="ten-button">10 Minutes</button>
+          <button class="ten-button" onclick="tenMinutes()">10 Minutes</button>
         </div>
         <div class="custom-minutes">
           <input class="custom-button" placeholder="Custom min"></input>
         </div>
       </div>
       <div class="center">
-        <div class="visual-timer">
-          <button><img src="./images/pause.png" alt="" /></button>
+
+        <div>
+          <img id="ppButton" src="./images/play.png" alt="playpause" onclick="playPause()"/>
         </div>
-        <div class="timer">10:00</div>
+
+        <div id="timer-display">00:00:00</div>
       </div>
       <div class="right">
         <div class="rain">
-          <button class="rain-button">
-            <img src="./images/rain.png" class="icons" alt="Rain" />
-          </button>
+          <img id="rain-btn" src="./images/rain.png" class="icons" alt="Rain" onclick="rain()"/>
         </div>
         <div class="wind">
-          <button class="wind">
-            <img src="./images/wind.png" class="icons" alt="Wind" />
-          </button>
+          <img id="wind-btn" src="./images/wind.png" class="icons" alt="Wind" onclick="wind()"/>
         </div>
         <div class="beach">
-          <button class="beach">
-            <img src="./images/beach.png" class="icons" alt="Beach" />
-          </button>
+            <img id="beach-btn" src="./images/beach.png" class="icons" alt="Beach" onclick="beach()"/>
         </div>
         <div class="fire">
-          <button class="fire">
-            <img src="./images/fire.png" class="icons" alt="Fire" />
-          </button>
+          <img id="fire-btn" src="./images/fire.png" class="icons" alt="Fire" onclick="fire()"/>
         </div>
       </div>
       <footer>
@@ -60,6 +63,6 @@
         | 2021
       </footer>
     </div>
-    <script src="./main.js"></script>
+    <script src="./js/main.js"></script>
   </body>
 </html>

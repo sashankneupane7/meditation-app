@@ -1,14 +1,30 @@
 * {
   box-sizing: border-box;
   overflow: hidden;
+  color: white;
 }
 
+video {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#fire-vid,
+#beach-vid,
+#wind-vid,
+#rain-vid {
+  z-index: -5;
+}
 
 .all {
   position: relative;
   margin: 0;
   padding: 0;
-  background: none;
+  background:none;
   width: calc(100% - 0.4px);
   height: calc(100% - 0.4px);
   display: flex;
@@ -50,7 +66,8 @@
 .ten-minutes,
 .custom-minutes,
 .visual-timer,
-.timer,
+#timer-display,
+#timer-button,
 .rain,
 .beach,
 .fire,
@@ -73,10 +90,16 @@
 .visual-timer {
   height: 50vh;
 }
-.timer {
+#timer-display {
+  padding-top: 30px;
   height: 10vh;
   font-weight: 100;
 }
+#timer-button{
+  height: 10vh;
+  font-weight: 30px;
+}
+
 
 button,
 input {
@@ -85,6 +108,7 @@ input {
   background: none;
   border: none;
   opacity: 0.9;
+  color: white;
 }
 
 .left button {
@@ -94,7 +118,7 @@ input {
   font-size: 1.5rem;
 }
 
-.center button {
+.center {
   margin: auto;
   display: flex;
   justify-content: center;
@@ -108,14 +132,16 @@ input {
   display: block;
 }
 
-.center button img {
+.center img {
   display: block;
   width: 100%;
   max-width: 330px;
   max-height: 330px;
   align-items: center;
 }
-
+.timer {
+  padding-top: 20px;
+}
 button:hover {
   transition: 0.5s smooth;
   opacity: 1;
@@ -149,7 +175,7 @@ footer {
 
 a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 input {
@@ -184,5 +210,9 @@ input {
   .left button,
   .left input {
     font-size: 1.2rem;
+  }
+  .center img {
+    max-width: 250px;
+    max-height: 250px;
   }
 }
