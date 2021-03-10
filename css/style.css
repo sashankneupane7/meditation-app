@@ -106,7 +106,6 @@ input {
   color: white;
 }
 
-
 ::placeholder {
   color: white;
 }
@@ -151,8 +150,8 @@ button:hover {
 }
 
 .icons {
-  height: 80px;
-  width: 80px;
+  height: 90px;
+  width: 90px;
 }
 
 header {

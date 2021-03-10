@@ -1,5 +1,6 @@
 var mainVideo = document.getElementById("rain-vid");
 var timer = 600000;
+var isPaused = true;
 
 function checkPlay(video) {
   isPlaying = document.getElementById("ppButton").src.endsWith("pause.png");
@@ -83,13 +84,29 @@ function playPause() {
     mainVideo.pause();
     document.getElementById("header").style.visibility = "visible";
     document.getElementById("footer").style.visibility = "visible";
-    console.log(document.getElementById("footer"));
+    document.getElementById("two-minutes").style.visibility = "visible";
+    document.getElementById("five-minutes").style.visibility = "visible";
+    document.getElementById("ten-minutes").style.visibility = "visible";
+    document.getElementById("custom-button").style.visibility = "visible";
+    document.getElementById("rain-btn").style.visibility = "visible";
+    document.getElementById("fire-btn").style.visibility = "visible";
+    document.getElementById("beach-btn").style.visibility = "visible";
+    document.getElementById("wind-btn").style.visibility = "visible";
+
   } else {
     ppButton = ppButton.replace("play.png", "pause.png");
     document.getElementById("ppButton").src = ppButton;
     mainVideo.play();
     document.getElementById("header").style.visibility = "hidden";
     document.getElementById("footer").style.visibility = "hidden";
+    document.getElementById("two-minutes").style.visibility = "hidden";
+    document.getElementById("five-minutes").style.visibility = "hidden";
+    document.getElementById("ten-minutes").style.visibility = "hidden";
+    document.getElementById("custom-button").style.visibility = "hidden";
+    document.getElementById("rain-btn").style.visibility = "hidden";
+    document.getElementById("fire-btn").style.visibility = "hidden";
+    document.getElementById("beach-btn").style.visibility = "hidden";
+    document.getElementById("wind-btn").style.visibility = "hidden";
   }
 }
 
@@ -131,19 +148,19 @@ const timerButton = document.getElementById("ppButton");
 timerDisplay.innerHTML = msToTimeString(timer);
 
 counter = 0;
+setInterval(() => {
+  timer -= 1000 * counter;
+  if (timer < 0) {
+    mainVideo.pause();
+    document.getElementById("ppButton").src = document
+      .getElementById("ppButton")
+      .src.replace("pause.png", "play.png");
+    return;
+  }
+  timerDisplay.innerHTML = msToTimeString(timer);
+}, 1000);
 timerButton.addEventListener("click", () => {
   if (counter == 0) {
-    setInterval(() => {
-      timer -= 1000 * counter;
-      if (timer < 0) {
-        mainVideo.pause();
-        document.getElementById("ppButton").src = document
-          .getElementById("ppButton")
-          .src.replace("pause.png", "play.png");
-        return;
-      }
-      timerDisplay.innerHTML = msToTimeString(timer);
-    }, 1000);
     counter = 1;
   } else {
     counter = 0;
