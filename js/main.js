@@ -130,21 +130,15 @@ const timerDisplay = document.getElementById("timer-display");
 const timerButton = document.getElementById("ppButton");
 timerDisplay.innerHTML = msToTimeString(timer);
 
+counter = 0;
 timerButton.addEventListener("click", () => {
-  counter = 1;
-  if (counter == 1) {
-    setInterval(() => {
-      timer -= 1000;
-      if (timer < 0) {
-        mainVideo.pause();
-        document.getElementById("ppButton").src = document
-          .getElementById("ppButton")
-          .src.replace("pause.png", "play.png");
-        return;
-      }
-      timerDisplay.innerHTML = msToTimeString(timer);
-    }, 1000);
-    counter = 0;
+  if (counter == 0) {
+    counter = 1;
   } else {
+    counter = 0;
   }
+  setInterval(() => {
+    timer -= 1000*counter;
+    timerDisplay.innerHTML = msToTimeString(timer);
+  }, 1000);
 });
