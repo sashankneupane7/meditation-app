@@ -133,12 +133,19 @@ timerDisplay.innerHTML = msToTimeString(timer);
 counter = 0;
 timerButton.addEventListener("click", () => {
   if (counter == 0) {
+    setInterval(() => {
+      timer -= 1000 * counter;
+      if (timer < 0) {
+        mainVideo.pause();
+        document.getElementById("ppButton").src = document
+          .getElementById("ppButton")
+          .src.replace("pause.png", "play.png");
+        return;
+      }
+      timerDisplay.innerHTML = msToTimeString(timer);
+    }, 1000);
     counter = 1;
   } else {
     counter = 0;
   }
-  setInterval(() => {
-    timer -= 1000*counter;
-    timerDisplay.innerHTML = msToTimeString(timer);
-  }, 1000);
 });
