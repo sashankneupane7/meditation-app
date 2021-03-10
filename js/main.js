@@ -18,7 +18,12 @@ function fire() {
   document.getElementById("beach-vid").style.display = "none";
   document.getElementById("rain-vid").style.display = "none";
   document.getElementById("wind-vid").style.display = "none";
-  return video;
+
+  //audio 
+  document.getElementById("fire-vid").muted = false;
+  document.getElementById("beach-vid").muted = true;
+  document.getElementById("rain-vid").muted = true;
+  document.getElementById("wind-vid").muted = true;
 }
 
 function beach() {
@@ -29,6 +34,11 @@ function beach() {
   document.getElementById("fire-vid").style.display = "none";
   document.getElementById("rain-vid").style.display = "none";
   document.getElementById("wind-vid").style.display = "none";
+
+  document.getElementById("beach-vid").muted = false;
+    document.getElementById("fire-vid").muted = true;
+    document.getElementById("rain-vid").muted = true;
+    document.getElementById("wind-vid").muted = true;
   return video;
 }
 
@@ -40,6 +50,11 @@ function wind() {
   document.getElementById("beach-vid").style.display = "none";
   document.getElementById("rain-vid").style.display = "none";
   document.getElementById("fire-vid").style.display = "none";
+
+  document.getElementById("wind-vid").muted = false;
+  document.getElementById("beach-vid").muted = true;
+  document.getElementById("rain-vid").muted = true;
+  document.getElementById("fire-vid").muted = true;
   return video;
 }
 
@@ -47,19 +62,25 @@ function rain() {
   video = document.getElementById("rain-vid");
   mainVideo = video;
   checkPlay(video);
+
+
+
   document.getElementById("rain-vid").style.display = "initial";
   document.getElementById("beach-vid").style.display = "none";
   document.getElementById("fire-vid").style.display = "none";
   document.getElementById("wind-vid").style.display = "none";
+
+document.getElementById("rain-vid").muted = false;
+    document.getElementById("beach-vid").muted = true;
+    document.getElementById("fire-vid").muted = true;
+    document.getElementById("wind-vid").muted = true;
   return video;
 }
-
-
 
 function playPause() {
   ppButton = document.getElementById("ppButton").src;
   if (ppButton.endsWith("pause.png")) {
-    console.log(mainVideo)
+    console.log(mainVideo);
     ppButton = ppButton.replace("pause.png", "play.png");
     document.getElementById("ppButton").src = ppButton;
     mainVideo.pause();
@@ -70,19 +91,25 @@ function playPause() {
   }
 }
 
-function twoMinutes(){
+function twoMinutes() {
   timer = 120000;
   timerDisplay.innerHTML = msToTimeString(timer);
 }
 
-function fiveMinutes(){
+function fiveMinutes() {
   timer = 300000;
   timerDisplay.innerHTML = msToTimeString(timer);
 }
 
-function tenMinutes(){
+function tenMinutes() {
   timer = 600000;
   timerDisplay.innerHTML = msToTimeString(timer);
+}
+
+function customMinutes() {
+  timer = document.getElementById("custom-button").value * 60000;
+  timerDisplay.innerHTML = msToTimeString(timer);
+  document.getElementById("custom-button").value = "none";
 }
 
 function msToTimeString(ms) {
@@ -101,14 +128,21 @@ const timerDisplay = document.getElementById("timer-display");
 const timerButton = document.getElementById("ppButton");
 
 timerButton.addEventListener("click", () => {
-  setInterval(() => {
-    timer -= 1000;
-    if (timer<0) {
-      mainVideo.pause();
-      document.getElementById("ppButton").src = document.getElementById('ppButton').src.replace("pause.png","play.png");
-      return;
-    }
-    timerDisplay.innerHTML = msToTimeString(timer);
-  }, 1000);
-});
+    counter = 1;
+    if (counter == 1) {
+      setInterval(() => {
+        timer -= 1000;
+        if (timer < 0) {
+          mainVideo.pause();
+          document.getElementById("ppButton").src = document
+            .getElementById("ppButton")
+            .src.replace("pause.png", "play.png");
+          return;
+        }
+        timerDisplay.innerHTML = msToTimeString(timer);
+      }, 1000);
+      counter = 0
+  } else {
 
+  }
+});

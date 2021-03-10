@@ -24,7 +24,7 @@ video {
   position: relative;
   margin: 0;
   padding: 0;
-  background:none;
+  background: none;
   width: calc(100% - 0.4px);
   height: calc(100% - 0.4px);
   display: flex;
@@ -91,15 +91,10 @@ video {
   height: 50vh;
 }
 #timer-display {
-  padding-top: 30px;
+  padding-top: 20px;
   height: 10vh;
   font-weight: 100;
 }
-#timer-button{
-  height: 10vh;
-  font-weight: 30px;
-}
-
 
 button,
 input {
@@ -111,11 +106,18 @@ input {
   color: white;
 }
 
+
+::placeholder {
+  color: white;
+}
+
 .left button {
   width: 100%;
   height: 100%;
   display: block;
   font-size: 1.5rem;
+  opacity: 0.8;
+  border: 0.2px white solid;
 }
 
 .center {
@@ -144,6 +146,7 @@ input {
 }
 button:hover {
   transition: 0.5s smooth;
+  border: black 0.2px solid;
   opacity: 1;
 }
 

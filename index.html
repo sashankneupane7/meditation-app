@@ -18,7 +18,7 @@
       
     
     <div class="all">
-      <header>Meditate with <a href="https://sashankneupane.com.np" target="_blank">sashank<span class="bold-logo">neupane</span></a></header>
+      <header id="header">Meditate with <a href="https://sashankneupane.com.np" target="_blank">sashank<span class="bold-logo">neupane</span></a></header>
       <div class="left">
         <div class="two-minutes">
           <button class="two-button" onclick="twoMinutes()">2 Minutes</button>
@@ -30,7 +30,7 @@
           <button class="ten-button" onclick="tenMinutes()">10 Minutes</button>
         </div>
         <div class="custom-minutes">
-          <input class="custom-button" placeholder="Custom min"></input>
+          <input id="custom-button" type="number" placeholder="Custom min" onchange="customMinutes()"></input>
         </div>
       </div>
       <div class="center">
@@ -42,7 +42,7 @@
         <div id="timer-display">00:00:00</div>
       </div>
       <div class="right">
-        <div class="rain">
+        <div class="rain"> 
           <img id="rain-btn" src="./images/rain.png" class="icons" alt="Rain" onclick="rain()"/>
         </div>
         <div class="wind">
